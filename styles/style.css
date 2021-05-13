@@ -1,0 +1,84 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: bisque;
+}
+
+.wrapper {
+  max-width: 500px;
+  margin: 50px auto 0;
+  padding: 20px;
+  background-color: cadetblue;
+  box-shadow: 0 0 10px 5px rgba(221, 221, 221, 1);
+}
+
+.title {
+  text-align: center;
+  font-size: 56px;
+  line-height: 1.4;
+}
+
+.author {
+  font-size: 18px;
+  font-style: italic;
+}
+
+.taskWindow {
+  display: flex;
+  margin: 20px 0;
+}
+
+.newTask {
+  width: 100%;
+  padding: 2px 5px;
+}
+
+.addTask {
+  padding: 3px;
+  border: 2px solid ;
+  color: #fff;
+  background-color: black;
+  cursor: pointer;
+  transition: background-color, color, .5s ease;
+}
+
+.addTask:hover {
+  color: #000;
+  background-color: green;
+}
+
+.todoList {
+  list-style-type: none;
+}
+
+.todoItem {
+  display: flex;
+  align-items: center;
+  padding: 5px;
+  border: 1px solid black;
+}
+
+.todoItem:not(:last-child) {
+  margin-bottom: 10px;
+}
+
+.todoInput {
+  margin-right: 5px;
+  cursor: pointer;
+}
+
+.delTask {
+  width: 20px;
+  height: 20px;
+  margin-left: auto;
+  font-size: 16px;
+  color: #fff;
+  background-color: red;
+  border: none;
+  cursor: pointer;
+}
+
