@@ -1,45 +1,32 @@
-let newTask = document.querySelector('.newTask')
 let addTask = document.querySelector('.addTask')
-let delTask = document.querySelector('.delTask')
-let todoList = document.querySelector('.todoList')
-let todoArr = []
-let task = ''
-
-if(localStorage.getItem('task')) {
-  todoArr = JSON.parse(localStorage.getItem('task'))
-  displayTasks()
-}
+let taskText = document.querySelector('.newTask')
+let taskList = document.querySelector('.todoList')
+let taskArr = []
 
 addTask.addEventListener('click', function() {
-  if (newTask.value === '') return false
-
-  newTodo = {
-    task: newTask.value,
-    complete: false,
-    important: false
+  if(taskText.value === '') {
+    return false
   }
 
-  todoArr.push(newTodo)
+  let newTask = {
+    task: taskText.value,
+    complete: false
+  }
 
-  displayTasks()
-  newTask.value = ''
-  localStorage.setItem('task', JSON.stringify(todoArr))
-})
+  taskArr.push(newTask)
 
-function displayTasks() {
-  let displayTask = ''
+  let item = document.createElement('li')
+      item.classList.add('todoItem')
+      item.innerHTML = `<input class="todoInput" type="checkbox" id="todoInput">
+                        <label for="todoInput">${newTask.task}</label>
+                        <button class="delTask">&times</button>`
 
-  todoArr.forEach(function(task, index) {
-    displayTask += `
-    <li class="todoItem">
-      <input type="checkbox" class="todoInput" id="todoInput" ${task.complete ? 'checked' : ''}>
-      <label for="todoInput">${task.task}</label>
-      <button class="delTask">&times</button>
-    </li>
-   `
-
-   todoList.innerHTML = displayTask
+  taskArr.forEach(function() {
+    taskList.appendChild(item)
   })
-}
 
+  taskText.value = ''
+
+  // console.log(taskArr);
+})
 
